@@ -1,8 +1,7 @@
 <template>
+  
     <nav class="navbar">
-      <router-link to="/">Accueil</router-link>
-      <router-link to="/categories">Catégories</router-link>
-      <router-link to="/scores">Scores</router-link>
+      <h1>Bienvenue sur notre site de blind test</h1>
     </nav>
   </template>
   
@@ -12,7 +11,7 @@
     justify-content: center;
     gap: 20px;
     padding: 10px;
-    background-color: #d9d9d9;
+    background-color: grey;
   }
   
   .navbar a {
@@ -23,5 +22,9 @@
   
   .navbar a.router-link-active {
     text-decoration: underline;
+  }
+
+  .main{
+    background-color: blue;
   }
   </style>
