@@ -1,7 +1,6 @@
 <template>
   <footer class="footer">
     <p>&copy; 2025 Blind Test - Projet IFAPME</p>
-    <p>Contact: contact@blindtest.com</p>
   </footer>
 </template>
 

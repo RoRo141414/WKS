@@ -2,7 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 import HeaderComponent from './components/header.vue';
-import template from './components/main.vue';
+import MainComponent from './components/main.vue';
 import FooterComponent from './components/footer.vue';
 </script>
 
