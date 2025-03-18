@@ -8,16 +8,29 @@
     <section class="categories">
       <h3>Choisissez une catégorie :</h3>
       <div class="category-list">
-        <button v-for="category in ['Années 80', 'Rock', 'Pop', 'Rap', 'Variété française']" 
-                :key="category" 
-                @click="$emit('select-category', category)" 
-                class="category-button">
+        <button 
+          v-for="category in categories" 
+          :key="category" 
+          @click="$emit('select-category', category)" 
+          class="category-button"
+          :aria-label="'Choisir la catégorie ' + category"
+        >
           {{ category }}
         </button>
       </div>
     </section>
   </main>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      categories: ['Années 80', 'Rock', 'Pop', 'Rap', 'Variété française']
+    };
+  }
+};
+</script>
 
 <style scoped>
 .main {
@@ -72,19 +85,20 @@ h3 {
 }
 
 .category-button {
-  background: linear-gradient(135deg, #ff8c00, #ff4500);
-  color: white;
+  background: lightgrey;
   font-size: 1.2rem;
   padding: 15px;
   border: none;
   border-radius: 15px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  height: 100%;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.category-button:hover {
+.category-button:hover, .category-button:focus {
   background: linear-gradient(135deg, #ffa500, #ff6347);
   transform: translateY(-3px);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
