@@ -3,20 +3,26 @@
     <div class="content">
       <h2>Prêt pour un Blind Test musical ?</h2>
       <p>Affrontez vos amis et testez vos connaissances en musique.</p>
-      <button @click="startGame" aria-label="Lancer le Blind Test">Jouer maintenant</button>
     </div>
+    
+    <section class="categories">
+      <h3>Choisissez une catégorie :</h3>
+      <div class="category-list">
+        <button v-for="category in ['Années 80', 'Rock', 'Pop', 'Rap', 'Variété française']" 
+                :key="category" 
+                @click="$emit('select-category', category)" 
+                class="category-button">
+          {{ category }}
+        </button>
+      </div>
+    </section>
   </main>
 </template>
-
-<script setup>
-const startGame = () => {
-  alert("Le jeu va commencer !");
-};
-</script>
 
 <style scoped>
 .main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -32,6 +38,7 @@ const startGame = () => {
 .content {
   max-width: 600px;
   width: 90%;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -44,21 +51,42 @@ p {
   margin-bottom: 25px;
 }
 
-button {
-  background-color: #ffcc00;
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 15px 25px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+.categories {
+  text-align: center;
+  margin-top: 20px;
 }
 
-button:hover {
-  background-color: #ffdb4d;
-  transform: scale(1.1);
+h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  width: 100%;
+  justify-content: center;
+}
+
+.category-button {
+  background: linear-gradient(135deg, #ff8c00, #ff4500);
+  color: white;
+  font-size: 1.2rem;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.category-button:hover {
+  background: linear-gradient(135deg, #ffa500, #ff6347);
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 768px) {
@@ -70,21 +98,13 @@ button:hover {
     font-size: 1.2rem;
   }
 
-  button {
-    font-size: 1.2rem;
-    padding: 12px 20px;
+  .category-list {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
-}
-</style>
 
-<style>
-/* Normalisation et suppression du scroll inutile */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+  .category-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
 }
 </style>
