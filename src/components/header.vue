@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" aria-label="En-tête principal">
     <div class="header-container">
       <!-- Logo et titre -->
       <div class="header-left">
