@@ -1,29 +1,50 @@
 <template>
-    <header class="header">
-      <h1 class="title">Blind Test</h1>
-    </header>
-  </template>
-  
-  <style scoped>
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
-  
-  .title {
-    font-size: 1.8rem;
-    margin: 0;
-    text-align: center;
-  }
-  </style>
+  <header class="header">
+    <div class="header-container">
+      <!-- Logo et titre -->
+      <div class="header-left">
+        <MusicIcon class="music-icon animate-pulse" />
+        <h1 class="header-title">Blind Test</h1>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script setup>
+import { Music as MusicIcon } from 'lucide-vue-next'
+</script>
+
+<style scoped>
+.header {
+  background-color: #1a1a1a;
+  padding: 1rem 0;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  border-bottom: 2px solid white;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.music-icon {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+</style>
